@@ -47,7 +47,7 @@ export const orderedCountries = (order) => {
 export const searchByName = (name) => {
     return async function (dispatch){
         try {
-            let result = await axios.get('https://deploycountriesback.herokuapp.com//countries?name=' + name)
+            let result = await axios.get('https://deploycountriesback.herokuapp.com/countries?name=' + name)
             if (result.data.message){
                 alert (result.data.message)
             } else {
