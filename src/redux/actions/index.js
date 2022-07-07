@@ -12,7 +12,7 @@ export const DELETE_ACTIVITY = "DELETE_ACTIVITY"
 
 
 export const getCountries = () => {
-    return async function (dispatch) {
+    return async function () {
         await axios.get('deploycountriesback.herokuapp.com/countries')
         .then((countries) => {
             ({
