@@ -39,7 +39,7 @@ function Home(props) {
   useEffect(() => {
     if(!countries.length) {
     dispatch(getCountries())
-    dispatch(getActivities())
+    // dispatch(getActivities())
     }
   },[dispatch, countries.length])
 
