@@ -22,6 +22,7 @@ export const getCountries = () => {
         })
         .catch((err) => {
             console.log(err)
+            console.log("COUNTRIES DATA", countries.data)
         });
     };
   };
