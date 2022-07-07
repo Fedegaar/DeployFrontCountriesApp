@@ -15,7 +15,7 @@ export const getCountries = () => {
     return async function (dispatch) {
         await axios.get('deploycountriesback.herokuapp.com/countries')
         .then((countries) => {
-            dispatch ({
+            return dispatch ({
                 type: GET_COUNTRIES,
                 payload: countries.data
             })
@@ -29,7 +29,7 @@ export const getCountries = () => {
 export const getCountryDetail = (id) => {
     return async function (dispatch) {
         let detail = await axios.get('deploycountriesback.herokuapp.com/countries/' + id)
-            dispatch ({
+            return dispatch ({
                 type: GET_COUNTRY_DETAIL,
                 payload: detail.data
             })        
