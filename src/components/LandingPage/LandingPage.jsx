@@ -23,8 +23,8 @@ function LandingPage() {
 
 
         <div className={s.Titulo}>
-            <h1 className={s.Title}>BIENVENIDXS</h1>
-            <h2 className={s.Title}>THE COUNTRY WEB APP</h2>
+            <h1 className={s.Title}>WGR</h1>
+            <h2 className={s.Title}>VAS A PERDER</h2>
         </div>
 
 
