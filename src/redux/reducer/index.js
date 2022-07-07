@@ -14,7 +14,7 @@ export default function reducer (state = initialState, {type, payload}){
     switch (type){
         case GET_COUNTRIES:            
             let conti = []                                            
-            payload.forEach ((c) => {                
+            payload?.forEach ((c) => {                
                 if (!conti.includes(c.continent)){
                     conti.push(c.continent) 
                 }
