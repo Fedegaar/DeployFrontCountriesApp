@@ -97,11 +97,11 @@ export default function reducer (state = initialState, {type, payload}){
         
         case FILTER_ACTIVITIES:
             if(payload !== "ACTIVITIES"){
-                let cByAct = state?.activities?.filter((e) => e.name ===payload)
+                let cByAct = state.activities?.filter((e) => e.name ===payload)
                 console.log("SOY EL CBYACT",cByAct)    
                 return{
                     ...state,
-                    sortCountries: cByAct[0].countries ? cByAct[0].countries : "" 
+                    sortCountries: cByAct[0].countries 
                 }
             } else {
                 return {
