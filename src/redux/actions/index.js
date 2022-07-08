@@ -29,7 +29,7 @@ export const getCountries = () => {
 
 export const getCountryDetail = (id) => {
     return async function (dispatch) {
-        let detail = await axios.get('deploycountriesback.herokuapp.com/countries/' + id)
+        let detail = await axios.get('https://deploycountriesback.herokuapp.com/countries/' + id)
             return dispatch ({
                 type: GET_COUNTRY_DETAIL,
                 payload: detail.data
@@ -48,7 +48,7 @@ export const orderedCountries = (order) => {
 export const searchByName = (name) => {
     return async function (dispatch){
         try {
-            let result = await axios.get('deploycountriesback.herokuapp.com/countries?name=' + name)
+            let result = await axios.get('https://deploycountriesback.herokuapp.com/countries?name=' + name)
             if (result.data.message){
                 alert (result.data.message)
             } else {
@@ -72,7 +72,7 @@ export const filterContinents = (filter) => {
 export const createActivity = (body) => {
     return async function (dispatch) {        
         try{
-        let result = await axios.post('deploycountriesback.herokuapp.com/activity', body)               
+        let result = await axios.post('https://deploycountriesback.herokuapp.com/activity', body)               
             dispatch ({
                 type: CREATE_ACTIVITY,
                 payload: result.data
@@ -88,7 +88,7 @@ export const createActivity = (body) => {
 export const getActivities = () => {
     return async function (dispatch) {
         try {
-            let result = await axios.get('deploycountriesback.herokuapp.com/activity')
+            let result = await axios.get('https://deploycountriesback.herokuapp.com/activity')
             dispatch({
                 type: GET_ACTIVITIES,
                 payload: result.data
