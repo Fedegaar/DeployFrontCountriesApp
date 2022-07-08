@@ -19,7 +19,7 @@ function LandingPage() {
 
 
 
-        <hr width={"800px"} />
+        <hr width={"100%"} />
 
 
         <div className={s.Titulo}>
@@ -34,7 +34,7 @@ function LandingPage() {
         </div>
 
 
-        <hr width={"800px"} />  
+        <hr width={"100%"} />  
 
 
     </div>
