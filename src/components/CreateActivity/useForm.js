@@ -33,12 +33,12 @@ export const useForm = (initialForm, validateForm) => {
         }
     }
     const handleClose = (c) => {
+        console.log(countries)
         alert('Are you sure?')
         setForm({
             ...form,
             countries: form.countries.filter(c => c !== c.name)
         });
-        console.log(countries)
       }
 
 
