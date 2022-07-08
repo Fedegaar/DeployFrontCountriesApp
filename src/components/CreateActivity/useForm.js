@@ -38,6 +38,7 @@ export const useForm = (initialForm, validateForm) => {
             ...form,
             countries: form.countries.filter(c => c !== c.name)
         });
+        console.log(countries)
       }
 
 
