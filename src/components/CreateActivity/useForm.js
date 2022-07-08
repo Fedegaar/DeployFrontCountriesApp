@@ -31,8 +31,9 @@ export const useForm = (initialForm, validateForm) => {
             countries: [...form.countries, e.target.value]
         })
         }
+        console.log("SOY COUNTRIES", countries)
     }
-    const handleClose = (c) => {
+    const handleClose = () => {
         console.log(countries)
         alert('Are you sure?')
         setForm({
