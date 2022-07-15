@@ -16,7 +16,7 @@ function ActivityFilter() {
     return (    
     <select onChange={(e) => onSelectChange(e)} className={s.SelecActi}>
         <option value="ACTIVITIES">ACTIVITIES</option>        
-        {activities && activities?.map((act) => {            
+        {activities && activities.map((act) => {            
             return(
                 <option key={act.id} name ="filter"  value={act.name}>{act.name}</option>
             )
