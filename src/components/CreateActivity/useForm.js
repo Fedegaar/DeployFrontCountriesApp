@@ -1,13 +1,13 @@
 import { useState} from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { createActivity, getActivities } from '../../redux/actions';
 import { useHistory } from 'react-router-dom';
 
 
 export const useForm = (initialForm, validateForm) => {
-    const [form, setForm] = useState(initialForm);
+    const [form, setForm] = useState(initialForm? initialForm : "");
     const [errors, setErrors] = useState({});
-
+    
     const dispatch = useDispatch()
     const history = useHistory()
 
@@ -25,22 +25,30 @@ export const useForm = (initialForm, validateForm) => {
     };
 
     const handleSelect = (e) => {
-        if (!form.countries.includes(e.target.value)){
-        setForm({
-            ...form,
-            countries: [...form.countries, e.target.value]
-        })
+        let newArray = form.countries
+        if(!form.countries.includes(e.target.value)){
+            newArray.push(e.target.value)
+            setForm({
+                ...form,
+                countries: newArray
+            })
         }
-        console.log("SOY COUNTRIES", countries)
+        console.log("SOY FORM.COUNTRIES", form.countries)
     }
-    const handleClose = () => {
-        console.log(countries)
-        alert('Are you sure?')
-        setForm({
-            ...form,
-            countries: form.countries.filter(c => c !== c.name)
-        });
-      }
+    
+     const handleDelete = (e) => {
+        console.log("SOY E PAPA", e )
+        if(form.countries.includes(e)){
+            let newArray = form.countries
+            newArray = newArray.filter(c => c !== e)
+            console.log("NEWARRAY", newArray)
+            setForm({
+                ...form,
+                countries: newArray
+            })
+        }
+        console.log("LUEGO DEL DELETE", form.countries)
+    }
 
 
     const handleSubmit = (e) => {
@@ -51,10 +59,7 @@ export const useForm = (initialForm, validateForm) => {
         setErrors(validateForm(form));
         if (Object.keys(errors).length===0){
             alert("Sending info. Returining to home.")
-            dispatch(createActivity(form))
-            dispatch(getActivities())
-            
-        
+            dispatch(createActivity(form))        
         setForm({
             name: "",
             difficulty: "",
@@ -62,8 +67,8 @@ export const useForm = (initialForm, validateForm) => {
             season: "",
             countries: [] 
         })
-        history.push('/home')
         dispatch(getActivities())
+        history.push('/home')
         } else {
             e.preventDefault();
             alert ("Errors found on form, please check")
@@ -73,12 +78,10 @@ export const useForm = (initialForm, validateForm) => {
     return {
         form,
         errors,
-        // loading,
-        // response,
         handleChange,
         handleBlur,
         handleSubmit,
         handleSelect,
-        handleClose
+        handleDelete
     };
 };
