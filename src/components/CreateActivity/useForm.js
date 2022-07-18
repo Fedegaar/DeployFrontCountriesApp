@@ -58,8 +58,8 @@ export const useForm = (initialForm, validateForm) => {
         }
         setErrors(validateForm(form));
         if (Object.keys(errors).length===0){
-            alert("Sending info. Returining to home.")
             dispatch(createActivity(form))
+            alert("Sending info. Returning to home.")
             dispatch(getActivities())        
         setForm({
             name: "",
