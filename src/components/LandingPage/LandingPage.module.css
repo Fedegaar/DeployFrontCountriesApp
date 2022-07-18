@@ -30,9 +30,10 @@
 }
 
 .stiBtn:hover{
+    background-color:black;
+    border: solid 1px rgb(214, 214, 214);
+    color: white;
     transition:background-color 3s ease 0s,background-color 1s ease-out 0s;
-    -webkit-filter: invert(100%);
-    filter: invert(100%);
     cursor: pointer;
 }
 
