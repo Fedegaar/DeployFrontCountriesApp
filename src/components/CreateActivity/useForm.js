@@ -59,7 +59,8 @@ export const useForm = (initialForm, validateForm) => {
         setErrors(validateForm(form));
         if (Object.keys(errors).length===0){
             alert("Sending info. Returining to home.")
-            dispatch(createActivity(form))        
+            dispatch(createActivity(form))
+            dispatch(getActivities())        
         setForm({
             name: "",
             difficulty: "",
@@ -67,7 +68,6 @@ export const useForm = (initialForm, validateForm) => {
             season: "",
             countries: [] 
         })
-        dispatch(getActivities())
         history.push('/home')
         } else {
             e.preventDefault();
